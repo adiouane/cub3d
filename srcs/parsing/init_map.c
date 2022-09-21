@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 19:22:15 by adiouane          #+#    #+#             */
-/*   Updated: 2022/09/21 19:43:29 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/09/21 20:19:55 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,11 +221,16 @@ void 	check_borders(t_map *map)
 	i = 6;
 	while(map->map[i])
 	{
+		// if (map->map[i] == '\n' ||map->map[i][ft_strlen(map->map[i]) - 1] == '\n')
+		// {
+		// 	printf("error\n");
+		// 	exit(0);
+		// }
 		j = 0;
 		while (ft_strncmp(&map->map[i][j], " ", 1) == 0)
 			j++;
 		if (map->map[i][j] != '1' || map->map[i][ft_strlen(map->map[i]) - 1] != '1')
-			error("Error: Map has walls on the borders33\n");
+			error("Error: Map does not have walls on the borders\n");
 		i++;
 	}
 	j = 0;
