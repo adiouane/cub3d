@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 19:15:59 by adiouane          #+#    #+#             */
-/*   Updated: 2022/09/13 02:13:24 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:51:44 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	parsing(char *str)
 	t_map	*data;
 
 	data = malloc(sizeof(t_map));
+	if (!data)
+		return ;
 	ext = ft_strrchr(str, '.');
 	if (ft_strncmp(ext, ".cub\0", 5))
 		exit_error("invalid file extension", ext);
@@ -28,5 +30,4 @@ void	parsing(char *str)
 	data->map = ft_set_map(fd);
 	init_map(data);
 	close(fd);
-	// printf("Everything looks good\n");
 }

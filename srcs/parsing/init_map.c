@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 19:22:15 by adiouane          #+#    #+#             */
-/*   Updated: 2022/09/13 02:07:59 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:43:29 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,26 +46,29 @@ char	**ft_set_map(int fd)
 void	check_size(char **map)
 {
 	int i = 0;
-	while(ft_strncmp(map[i], "1", 1) == 0)
+	while(ft_strncmp(map[i], "1", 1) != 0
+		&& ft_strncmp(map[i], " ", 1) != 0 
+		&& ft_strncmp(map[i], "\t", 1)!= 0)
 		i++;
 	if (i > 6)
-		error("Error: to many paths\n");
+		error("Error\n");
 }
+
 
 void	check_deplicated(t_map *map)
 {
 	if (check_if_paths_are_deplicated(map, "NO") > 1 || ft_strncmp(map->map[0], "NO ", 3) != 0)
-		error("Error: NO");
+		error("Error: NO is deplicated\n");
 	if (check_if_paths_are_deplicated(map, "SO") > 1 || ft_strncmp(map->map[1], "SO ", 3) != 0)
-		error("Error: SO\n");
+		error("Error: SO is deplicated\n");
 	if (check_if_paths_are_deplicated(map, "WE") > 1 || ft_strncmp(map->map[2], "WE ", 3) != 0)
-		error("Error: WE \n");
+		error("Error: WE is deplicated\n");
 	if (check_if_paths_are_deplicated(map, "EA") > 1 || ft_strncmp(map->map[3], "EA ", 3) != 0)
-		error("Error: EA \n");
+		error("Error: EA is deplicated\n");
 	if (check_if_paths_are_deplicated(map, "F") > 1 || ft_strncmp(map->map[4], "F ", 2) != 0)
-		error("Error: F \n");
+		error("Error: F is deplicated\n");
 	if (check_if_paths_are_deplicated(map, "C") > 1 || ft_strncmp(map->map[5], "C ", 2) != 0)
-		error("Error: C \n");
+		error("Error: C is deplicated\n");
 }
 
 void	save_maps_info(t_map *map)
@@ -127,9 +130,7 @@ void	save_map_dementions(t_map *map)
 {
 	map->width = ft_strlen(map->map[6]);
 	map->height = 0;
-	int i = 6; // dont start counting from 6 
-	// width is the big line of the map
-	// height is the number of lines of the map
+	int i = 6;
 	while(map->map[i])
 	{
 		if ((int)ft_strlen(map->map[i]) > map->width)
@@ -137,8 +138,6 @@ void	save_map_dementions(t_map *map)
 		map->height++;
 		i++;
 	}
-	// printf("height: %d\n", map->height);
-	
 }
 
 int		check_if_paths_are_deplicated(t_map *map, char *str)
@@ -156,9 +155,38 @@ int		check_if_paths_are_deplicated(t_map *map, char *str)
 	return (is_deplicated);
 }
 
+int	is_character(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'W' || c == 'E'
+		|| c == ' ' || c == '1' || c == '0' || c == '\t')
+		return (1);
+	return (0);
+}
+
+void	check_characters(t_map *map)
+{
+	int i = 6;
+	int j;
+	while (map->map[i])
+	{
+		j = 0;
+		while(map->map[i][j])
+		{
+			if (!is_character(map->map[i][j]))
+			{
+				printf("character not found in line %d of map: '%c'\n", i, map->map[i][j]);
+				error("Error: Invalid character\n");
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
 void	check_map(t_map *map)
 {
 	check_borders(map);
+	check_characters(map);
 	int		i;
 	int		j;
 
@@ -191,8 +219,6 @@ void 	check_borders(t_map *map)
 	int j;
 
 	i = 6;
-	// printf("hight %d\n", map->height);
-	// printf("width %d\n", map->width);
 	while(map->map[i])
 	{
 		j = 0;
@@ -218,14 +244,12 @@ void 	check_borders(t_map *map)
 	}
 }
 
-
 void	save_map(t_map *map)
 {
-	//we will save map stating from 1 character found
 	int		i;
 	int		j;
-	
-	i = 6;// dont start counting from 6 
+
+	i = 6;
 	while (map->map[i])
 	{
 		j = 0;
@@ -243,7 +267,7 @@ void	save_map(t_map *map)
 	// 	printf("map buffer= %s\n", map->matrix[i]);
 	// 	i++;
 	// }
-} 
+}
 
 void	ckeck_paths_exists_with_open(t_map *map)
 {

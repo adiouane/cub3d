@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 20:56:55 by adiouane          #+#    #+#             */
-/*   Updated: 2022/08/21 20:40:19 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:41:12 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	error(char *errormsg)
 {
 	ft_putstr_fd(errormsg, 1);
-	// exit(0);
+	exit(0);
 }

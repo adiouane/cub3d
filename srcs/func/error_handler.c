@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 21:31:06 by omanar            #+#    #+#             */
-/*   Updated: 2022/08/21 19:19:31 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:53:30 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	exit_error(char *str, char *err)
 	ft_putstr_fd(err, 2);
 	ft_putstr_fd(": ", 2);
 	ft_putendl_fd(str, 2);
-	// exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }

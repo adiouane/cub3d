@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 19:11:08 by omanar            #+#    #+#             */
-/*   Updated: 2022/09/13 02:10:45 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:41:29 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct map {
 	void		*mlx_win;
 	int			x;
 	int			y;
+	int			position_wall;
 }	t_map;
 
 /*----------------------------------PARSING------------------------------------------*/
@@ -80,7 +81,7 @@ void	check_map(t_map *map);
 void 	check_borders(t_map *map);
 void	save_map(t_map *map);
 void	ckeck_paths_exists_with_open(t_map *map);
-
+int		is_charater(char c);
 /*----------------------------------PLAYER_MOVE------------------------------------------*/
 
 /*----------------------------------RAYCASTING------------------------------------------*/
