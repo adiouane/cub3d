@@ -16,8 +16,9 @@ CC		=	gcc -Wall -Wextra -Werror -Iincludes -I libs/libft/includes -g -fsanitize=
 MLXFLG	=	-lmlx -Imlx -framework OpenGL -framework AppKit
 LIBFT	=	libs/libft/libft.a
 SRCS	=	srcs/cub3D.c srcs/func/error_handler.c srcs/func/error.c srcs/func/exit.c srcs/func/utlis.c \
-			srcs/parsing/init_cub.c srcs/parsing/init_map.c\
-			srcs/parsing/parce_cub.c srcs/raycasting/raycasting.c	$(LIBFT)
+			srcs/parsing/init_cub.c srcs/parsing/init_map.c \
+			srcs/parsing/parce_cub.c srcs/parsing/check_map.c srcs/raycasting/raycasting.c \
+			srcs/parsing/utls1.c srcs/parsing/utls2.c 	$(LIBFT)
 
 define HEADER_M
    ____      _    _____ ____  

@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 19:15:59 by adiouane          #+#    #+#             */
-/*   Updated: 2022/09/21 17:51:44 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/06 17:32:40 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,14 @@ void	parsing(char *str)
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 		exit_strerr(str, errno);
-	data->map = ft_set_map(fd);
+	data->map = ft_set_map(fd, data);
+	data->NO = NULL;
+	data->SO = NULL;
+	data->WE = NULL;
+	data->EA = NULL;
+	data->F = NULL;
+	data->C = NULL;
 	init_map(data);
 	close(fd);
 }
+
