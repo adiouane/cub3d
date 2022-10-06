@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 19:22:15 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/06 21:45:56 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/06 22:35:38 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ void	search_for_wall(char *buff, t_map *map)
 	while (buff[j])
 	{
 		if ((buff[j] == '\n' && buff[j + 1] == '\n')
-			|| (buff[j] == '\t' && buff[j + 1] == '\t')
-			|| (buff[j] == '\0' && buff[j + 1] == '\0'))
+			|| (buff[j] == '\t' && buff[j + 1] == '\t'))
 		{
 			printf("%d\n %d\n", j, map->position_wall);
 			error("Error tzb\n");

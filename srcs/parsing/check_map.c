@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:10:09 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/06 18:51:25 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/07 00:45:03 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void 	check_borders(t_map *map)
 
 void	check_map(t_map *map)
 {
-	int		i;
-	int		j;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
 	while (map->matrix[i])
@@ -92,6 +92,12 @@ void	check_map(t_map *map)
 					error("error: map invalid\n");
 				if (ft_strncmp(&map->matrix[i + 1][j], " ", 1) == 0)
 					error("error: map invalid\n");
+				if ( j > ft_strlen(map->matrix[i + 1])
+					|| j > ft_strlen(map->matrix[i - 1]))
+				{
+					printf("%s\n", map->matrix[i]);
+					error("error: map invalid\n");
+				}
 			}
 			j++;
 		}
@@ -101,17 +107,10 @@ void	check_map(t_map *map)
 
 void check(t_map *map)
 {
+    check_borders(map);
+	check_characters(map);
+    check_map(map);	
 	save__name_SO_NO_EA_C_F(map);
     check_deplicated(map);
 	check_lenght(map);
-    check_borders(map);
-	check_characters(map);
-    check_map(map);
-	printf("%s\n", map->NO);
-	printf("%s\n", map->SO);
-	printf("%s\n", map->WE);
-	printf("%s\n", map->EA);
-	printf("%s\n", map->F);
-	printf("%s\n", map->C);
-	
 }

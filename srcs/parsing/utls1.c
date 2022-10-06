@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:35:37 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/06 18:01:17 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/06 23:05:28 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ void	save_map(t_map *map)
 		}
 		i++;
 	}
-	i = 0;
-	while (map->matrix[i])
-	{
-		printf("%s\n", map->matrix[i]);
-		i++;
-	}
+	// i = 0;
+	// while (map->matrix[i])
+	// {
+	// 	printf("%s\n", map->matrix[i]);
+	// 	i++;
+	// }
 }
 
 

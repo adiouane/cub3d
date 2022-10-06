@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:38:12 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/06 19:42:46 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/06 23:09:11 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void    save__name_SO_NO_EA_C_F(t_map *map)
     int i;
 
 	i = 0;
-    while(map->map[i])
+    while(map->map[i] && i < map->position_wall)
     {
         if (ft_strncmp(ft_split(map->map[i], ' ')[0], "NO", 2) == 0)
             map->NO = ft_split(map->map[i], ' ')[0];
@@ -91,6 +91,7 @@ void    save__name_SO_NO_EA_C_F(t_map *map)
             map->F = ft_split(map->map[i], ' ')[0];
 		if (ft_strncmp(ft_split(map->map[i], ' ')[0], "C", 1) == 0)
             map->C = ft_split(map->map[i], ' ')[0];
+		printf("%s\n", map->map[i]);
         i++;
     }
     if (map->NO == NULL || map->SO == NULL || map->WE == NULL
@@ -119,9 +120,9 @@ void	check_deplicated(t_map *map)
 {
     int i;
     
-	// if (map->NO == NULL || map->SO == NULL || map->WE == NULL
-	// 	|| map->EA == NULL || map->F == NULL || map->C == NULL)
-	// 	error("Error PATH are NULL 1\n");
+	if (map->NO == NULL || map->SO == NULL || map->WE == NULL
+		|| map->EA == NULL || map->F == NULL || map->C == NULL)
+		error("Error PATH are NULL 1\n");
     i = 0;
     while (map->map[i])
     {
