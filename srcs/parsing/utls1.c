@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:35:37 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/07 17:19:17 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/07 19:32:12 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,6 @@ void	save_maps_info(t_map *map)
 				map->floor_color = ft_strdup(map->map[i]);
 			if (ft_strncmp(&map->map[i][j], "C", 1) == 0)
 				map->ceiling_color = ft_strdup(map->map[i]);
-			j++;
-		}
-		i++;
-	}
-}
-
-void	save_map(t_map *map)
-{
-	int		i;
-	int		j;
-
-	i = 6;
-	while (map->map[i])
-	{
-		j = 0;
-		while (map->map[i][j])
-		{
-			if (ft_strncmp(&map->map[i][j], "1", 1) == 0)
-				map->matrix = &map->map[6];
 			j++;
 		}
 		i++;

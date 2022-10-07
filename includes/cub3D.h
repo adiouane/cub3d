@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 19:11:08 by omanar            #+#    #+#             */
-/*   Updated: 2022/10/07 01:58:29 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/07 19:33:12 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	init_window(t_map *data);
 
 /*----------------------------------MAP------------------------------------------*/
 void	save_maps_info(t_map *map);
-// char	**ft_set_map(int fd);
 char	**ft_set_map(int fd, t_map *map);
 void	check_size(char **map);
 void	check_deplicated(t_map *map);
@@ -89,7 +88,6 @@ void	save_map_dementions(t_map *map);
 int		check_if_paths_are_deplicated(t_map *map, char *str);
 void	check_map(t_map *map);
 void 	check_borders(t_map *map);
-void	save_map(t_map *map);
 void	ckeck_paths_exists_with_open(t_map *map);
 int		is_charater(char c);
 void	check(t_map *map);
