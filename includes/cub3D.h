@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 19:11:08 by omanar            #+#    #+#             */
-/*   Updated: 2022/10/06 16:29:43 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/07 01:58:29 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define LEFT 5556
 
 typedef struct map {
-	char	    *check;
+	char		*check;
 	char		**map;
 	char		**matrix;
 	int			width;
@@ -41,12 +41,12 @@ typedef struct map {
 	char		*so;
 	char		*we;
 	char		*ea;
-	char 		*NO;
-    char 		*SO;
-    char 		*EA;
-    char 		*WE;
-    char 		*C;
-    char 		*F;
+	char		*no_name;
+	char		*so_name;
+	char		*ea_name;
+	char		*we_name;
+	char		*c_name;
+	char		*f_name;
 	char		*floor_color;
 	char		*ceiling_color;
 	void		*mlx;
@@ -57,9 +57,11 @@ typedef struct map {
 }	t_map;
 
 /*----------------------------------PARSING------------------------------------------*/
+
 void	parsing(char *str);
 
 /*----------------------------------ERRORS------------------------------------------*/
+
 void	exit_strerr(char *str, int err);
 void	exit_error(char *str, char *err);
 void	error(char *errormsg);
@@ -91,10 +93,10 @@ void	save_map(t_map *map);
 void	ckeck_paths_exists_with_open(t_map *map);
 int		is_charater(char c);
 void	check(t_map *map);
-void    save__name_SO_NO_EA_C_F(t_map *map);
+void    save__name_no_so_we_ea_f_c(t_map *map);
 void	check_lenght(t_map *map);
 void	check_newline(char *buff);
-
+void	check_characters(t_map *map);
 void	seach_for_wall(char *buff, t_map *map);
 /*----------------------------------PLAYER_MOVE------------------------------------------*/
 

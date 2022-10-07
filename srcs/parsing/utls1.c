@@ -6,19 +6,20 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:35:37 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/06 23:05:28 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/07 02:27:10 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <cub3D.h>
 
 void	check_size(char **map)
 {
-	int i = 0;
-	while(ft_strncmp(map[i], "1", 1) != 0
-		&& ft_strncmp(map[i], " ", 1) != 0 
-		&& ft_strncmp(map[i], "\t", 1)!= 0)
+	int	i;
+
+	i = 0;
+	while (ft_strncmp(map[i], "1", 1) != 0
+		&& ft_strncmp(map[i], " ", 1) != 0
+		&& ft_strncmp(map[i], "\t", 1) != 0)
 		i++;
 	if (i != 6)
 		error("Error size is more then 6\n");
@@ -26,9 +27,9 @@ void	check_size(char **map)
 
 void	save_maps_info(t_map *map)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	while (map->map[i])
 	{
@@ -53,9 +54,6 @@ void	save_maps_info(t_map *map)
 	}
 }
 
-/*
-  in this function we save map in a 2d array matrix
-*/
 void	save_map(t_map *map)
 {
 	int		i;
@@ -73,28 +71,20 @@ void	save_map(t_map *map)
 		}
 		i++;
 	}
-	// i = 0;
-	// while (map->matrix[i])
-	// {
-	// 	printf("%s\n", map->matrix[i]);
-	// 	i++;
-	// }
 }
-
 
 void	save_map_dementions(t_map *map)
 {
+	int	i;
+
+	i = 6;
 	map->width = ft_strlen(map->map[6]);
 	map->height = 0;
-	int i = 6;
-	while(map->map[i])
+	while (map->map[i])
 	{
 		if ((int)ft_strlen(map->map[i]) > map->width)
 			map->width = ft_strlen(map->map[i]);
 		map->height++;
 		i++;
 	}
-	// printf("width = %d\n", map->width);
-	// printf("height = %d\n", map->height);
 }
-
