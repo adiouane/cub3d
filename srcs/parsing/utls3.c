@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 01:54:31 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/07 02:26:30 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/07 17:45:39 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	check_f_color(t_map *map)
 
 	i = 0;
 	f = ft_split(map->floor_color, ',');
+	if (!f)
+		error("Error\n");
 	while (f[i])
 		i++;
 	if (i != 3)
@@ -37,9 +39,13 @@ void	check_c_color(t_map *map)
 {
 	int		i;
 	char	**c;
+	int		j;
 
 	i = 0;
+	j = 1;
 	c = ft_split(map->ceiling_color, ',');
+	if (!c)
+		error("Error\n");
 	while (c[i])
 		i++;
 	if (i != 3)

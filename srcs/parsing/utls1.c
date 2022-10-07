@@ -6,24 +6,27 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:35:37 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/07 02:27:10 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/07 17:19:17 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
 
-void	check_size(char **map)
-{
-	int	i;
+// void	check_size(char **map)
+// {
+// 	int	i;
 
-	i = 0;
-	while (ft_strncmp(map[i], "1", 1) != 0
-		&& ft_strncmp(map[i], " ", 1) != 0
-		&& ft_strncmp(map[i], "\t", 1) != 0)
-		i++;
-	if (i != 6)
-		error("Error size is more then 6\n");
-}
+// 	i = 0;
+// 	while (ft_strncmp(map[i], "1", 1) != 0
+// 		|| ft_strncmp(map[i], " ", 1) != 0
+// 		|| ft_strncmp(map[i], "\t", 1) != 0)
+// 		{
+// 			printf("%s\n", map[i]);
+// 		i++;
+// 		}
+// 	if (i != 6)
+// 		error("Error size is more then 6\n");
+// }
 
 void	save_maps_info(t_map *map)
 {
