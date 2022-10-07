@@ -6,11 +6,11 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 09:21:38 by adiouane          #+#    #+#             */
-/*   Updated: 2022/08/21 15:50:16 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/07 19:44:07 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3D.h>
+#include <libft.h>
 
 char	*ft_strjoine(char *s1, char const *s2)
 {

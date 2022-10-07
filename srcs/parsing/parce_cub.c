@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 19:15:59 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/07 01:41:06 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/07 19:41:29 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	parsing(char *str)
 		return ;
 	ext = ft_strrchr(str, '.');
 	if (ft_strncmp(ext, ".cub\0", 5))
-		exit_error("invalid file extension", ext);
+		error("Error\n");
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
-		exit_strerr(str, errno);
+		error("Error\n");
 	data->map = ft_set_map(fd, data);
 	init_map(data);
 	close(fd);
