@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 01:54:31 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/08 17:35:11 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/08 21:11:02 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,4 @@ void	check_colors(t_map *map)
 {
 	check_f_color(map);
 	check_c_color(map);
-	printf("%s\n", map->floor_color);
-	printf("%s\n", map->ceiling_color);
 }
