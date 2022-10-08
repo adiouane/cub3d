@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 19:11:08 by omanar            #+#    #+#             */
-/*   Updated: 2022/10/07 19:42:09 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/08 21:41:03 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	check_lenght(t_map *map);
 void	check_newline(char *buff);
 void	check_characters(t_map *map);
 void	seach_for_wall(char *buff, t_map *map);
+void	langht_characters(t_map *map);
 /*----------------------------------PLAYER_MOVE------------------------------------------*/
 
 /*----------------------------------RAYCASTING------------------------------------------*/

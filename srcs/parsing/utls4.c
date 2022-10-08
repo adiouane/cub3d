@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 01:57:28 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/08 01:48:30 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/08 21:44:12 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,29 @@ void	check_characters(t_map *map)
 	}
 }
 
-// void	langht_characters(tmap)
+void	langht_characters(t_map *map)
+{
+	int N;
+	int S;
+	int W;
+	int E;
+
+	N = 0;
+	S = 0;
+	W = 0;
+	E = 0;
+	while (map->map[6])
+	{
+		if (ft_strchr(map->map[6], 'N'))
+			N++;
+		if (ft_strchr(map->map[6], 'S'))
+			S++;
+		if (ft_strchr(map->map[6], 'W'))
+			W++;
+		if (ft_strchr(map->map[6], 'E'))
+			E++;
+		map->map++;
+	}
+	if (N > 1 || S > 1 || W > 1 || E > 1)
+		error("Error: Invalid character\n");
+}
