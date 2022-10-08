@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:38:12 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/07 02:22:04 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/08 17:41:15 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	check_lenght(t_map *map)
 	if (ft_strlen(map->no_name) != 2 || ft_strlen(map->so_name) != 2
 		|| ft_strlen(map->we_name) != 2 || ft_strlen(map->ea_name) != 2
 		|| ft_strlen(map->f_name) != 1 || ft_strlen(map->c_name) != 1)
-		error("Error 6\n");
+		error("Error: map invalid 6\n");
 }
 
 void	save__name_no_so_we_ea_f_c(t_map *map)
@@ -43,7 +43,7 @@ void	save__name_no_so_we_ea_f_c(t_map *map)
 	}
 	if (map->no_name == NULL || map->so_name == NULL || map->we_name == NULL
 		|| map->ea_name == NULL || map->f_name == NULL || map->c_name == NULL)
-		error("Error PATH are NULL2\n");
+		error("Error: map invalid 5\n");
 }
 
 int	check_if_paths_are_deplicated(t_map *map, char *str)
@@ -71,7 +71,7 @@ void	check_deplicated(t_map *map)
 	i = 0;
 	if (map->no_name == NULL || map->so_name == NULL || map->we_name == NULL
 		|| map->ea_name == NULL || map->f_name == NULL || map->c_name == NULL)
-		error("Error PATH are NULL 1\n");
+		error("Error: map invalid 3\n");
 	while (map->map[i])
 	{
 		if (check_if_paths_are_deplicated(map, "NO")
@@ -80,7 +80,7 @@ void	check_deplicated(t_map *map)
 			|| check_if_paths_are_deplicated(map, "EA")
 			|| check_if_paths_are_deplicated(map, "F")
 			|| check_if_paths_are_deplicated(map, "C"))
-			error("Error: is duplicated\n");
+			error("Error: map invalid 4\n");
 		i++;
 	}
 }

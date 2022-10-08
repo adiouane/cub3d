@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 01:57:28 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/07 02:26:52 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/08 01:48:30 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,5 @@ void	check_characters(t_map *map)
 		i++;
 	}
 }
+
+// void	langht_characters(tmap)

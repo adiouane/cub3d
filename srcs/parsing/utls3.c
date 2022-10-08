@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 01:54:31 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/07 17:45:39 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/08 17:35:11 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	check_f_color(t_map *map)
 	while (f[i])
 		i++;
 	if (i != 3)
-		error("Invalid color1\n");
+		error("Invalid color\n");
 	i = 0;
 	while (i < 3)
 	{
 		if (ft_atoi(f[i]) > 255 || ft_atoi(f[i]) < 0)
-			error("Invalid color2\n");
+			error("Invalid color\n");
 		i++;
 	}
 	free(f);
@@ -49,12 +49,12 @@ void	check_c_color(t_map *map)
 	while (c[i])
 		i++;
 	if (i != 3)
-		error("Invalid color3\n");
+		error("Invalid color\n");
 	i = 0;
 	while (i < 3)
 	{
 		if (ft_atoi(c[i]) > 255 || ft_atoi(c[i]) < 0)
-			error("Invalid color4\n");
+			error("Invalid color\n");
 		i++;
 	}
 	free(c);
@@ -64,4 +64,6 @@ void	check_colors(t_map *map)
 {
 	check_f_color(map);
 	check_c_color(map);
+	printf("%s\n", map->floor_color);
+	printf("%s\n", map->ceiling_color);
 }

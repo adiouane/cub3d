@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 19:22:15 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/07 19:41:55 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/08 18:25:41 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	search_for_wall(char *buff, t_map *map)
 	{
 		if ((buff[j] == '\n' && buff[j + 1] == '\n')
 			|| (buff[j] == '\t' && buff[j + 1] == '\t'))
-			error("Error tzb\n");
+			error("Error: map invalid0\n");
 		j++;
 	}
 }
@@ -45,15 +45,15 @@ char	**ft_set_map(int fd, t_map *map)
 
 	stored = ft_strdup("");
 	if (fd < 0)
-		error("Error fix 3your map\n");
+		error("Error: map invalid1\n");
 	buff = malloc((4096 + 1) * sizeof(char));
 	if (!buff)
 		return (NULL);
 	i = read(fd, buff, 4096);
-	if (i == -1 || buff[i - 1] == '\n')
+	if (i == -1 || buff[i - 1] == '\n' || buff[i - 1] == '\t')
 	{
 		free(buff);
-		error("error\n");
+		error("Error: map invalid2\n");
 	}
 	buff[i] = '\0';
 	search_for_wall(buff, map);
