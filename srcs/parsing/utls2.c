@@ -6,11 +6,18 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:38:12 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/08 21:30:52 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/08 22:34:30 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
+
+void	check_NULL(t_map *map)
+{
+	if (map->no_name == NULL || map->so_name == NULL || map->we_name == NULL
+		|| map->ea_name == NULL || map->f_name == NULL || map->c_name == NULL)
+		error("Error: map invalid 3\n");
+}
 
 void	check_lenght(t_map *map)
 {
@@ -41,9 +48,7 @@ void	save__name_no_so_we_ea_f_c(t_map *map)
 			map->c_name = ft_split(map->map[i], ' ')[0];
 		i++;
 	}
-	if (map->no_name == NULL || map->so_name == NULL || map->we_name == NULL
-		|| map->ea_name == NULL || map->f_name == NULL || map->c_name == NULL)
-		error("Error: map invalid 5\n");
+	check_NULL(map);
 }
 
 int	check_if_paths_are_deplicated(t_map *map, char *str)
@@ -69,9 +74,7 @@ void	check_deplicated(t_map *map)
 	int	i;
 
 	i = 0;
-	if (map->no_name == NULL || map->so_name == NULL || map->we_name == NULL
-		|| map->ea_name == NULL || map->f_name == NULL || map->c_name == NULL)
-		error("Error: map invalid 3\n");
+	check_NULL(map);
 	while (map->map[i])
 	{
 		if (check_if_paths_are_deplicated(map, "NO")

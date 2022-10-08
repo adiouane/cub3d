@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 01:57:28 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/08 21:44:12 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/08 21:55:28 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,8 @@ void	langht_characters(t_map *map)
 		map->map++;
 	}
 	if (N > 1 || S > 1 || W > 1 || E > 1)
-		error("Error: Invalid character\n");
+		error("Error: Invalid character1\n");
+	if ((N == 1 && S == 1) || (N == 1 && W == 1) || (N == 1 && E == 1))
+		error("Error: Invalid character2\n");
+	
 }
