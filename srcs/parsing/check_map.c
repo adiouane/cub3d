@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:10:09 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/09 03:19:50 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/09 03:31:34 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	check_borders(t_map *map)
 	int	i;
 	int	j;
 
-	i = map->position_wall;
+	i = 0;
 	while (map->matrix[i])
 	{
 		j = 0;

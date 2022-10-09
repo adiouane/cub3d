@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 20:56:55 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/07 19:37:32 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/09 03:35:28 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,5 @@ void	ft_exit(void)
 {
 	write(1, "Error\n", 7);
 	write(1, "Fix your map !\n", 15);
-	exit(0);
-}
-
-void	ft_close(void)
-{
 	exit(0);
 }
