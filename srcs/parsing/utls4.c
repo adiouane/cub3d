@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 01:57:28 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/08 21:55:28 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/09 02:03:24 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	check_characters(t_map *map)
 	int	i;
 	int	j;
 
-	i = 6;
-	while (map->map[i])
+	i = map->position_wall;
+	while (map->matrix[i])
 	{
 		j = 0;
-		while (map->map[i][j])
+		while (map->matrix[i][j])
 		{
-			if (!is_character(map->map[i][j]))
+			if (!is_character(map->matrix[i][j]))
 				error("Error: Invalid character\n");
 			j++;
 		}
@@ -50,7 +50,7 @@ void	langht_characters(t_map *map)
 	S = 0;
 	W = 0;
 	E = 0;
-	while (map->map[6])
+	while (map->map[map->position_wall])
 	{
 		if (ft_strchr(map->map[6], 'N'))
 			N++;

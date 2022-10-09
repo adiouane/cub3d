@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:38:12 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/08 22:34:30 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/09 01:35:14 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	check_NULL(t_map *map)
 
 void	check_lenght(t_map *map)
 {
+	check_NULL(map);
 	if (ft_strlen(map->no_name) != 2 || ft_strlen(map->so_name) != 2
 		|| ft_strlen(map->we_name) != 2 || ft_strlen(map->ea_name) != 2
 		|| ft_strlen(map->f_name) != 1 || ft_strlen(map->c_name) != 1)

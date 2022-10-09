@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:35:37 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/08 21:17:29 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/09 02:24:28 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void	save_map_dementions(t_map *map)
 {
 	int	i;
 
-	i = 6;
-	map->width = ft_strlen(map->map[6]);
-	map->height = 0;
-	while (map->map[i])
+	i = map->position_wall;
+	map->width = ft_strlen(map->map[map->position_wall]);
+	map->height = map->position_wall;
+	while (map->matrix[i])
 	{
-		if ((int)ft_strlen(map->map[i]) > map->width)
-			map->width = ft_strlen(map->map[i]);
+		if ((int)ft_strlen(map->matrix[i]) > map->width)
+			map->width = ft_strlen(map->matrix[i]);
 		map->height++;
 		i++;
 	}

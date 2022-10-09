@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 19:22:15 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/08 18:25:41 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/09 01:59:48 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	search_for_wall(char *buff, t_map *map)
 		if (ft_strncmp(&buff[i], "11111", 5) == 0)
 		{
 			map->position_wall = i;
-			break ;
+			return ;
 		}
 		i++;
 	}

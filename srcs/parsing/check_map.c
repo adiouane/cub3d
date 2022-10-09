@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:10:09 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/08 20:26:15 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/09 03:19:50 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	check_borders_first__last(t_map *map)
 	int	j;
 
 	j = 0;
-	while (map->map[6][j] != '\0')
+	while (map->matrix[0][j] != '\0')
 	{
-		if (map->map[6][j] == '0')
+		if (map->matrix[0][j] == '0')
 			error("Error: wall invalid14\n");
 		j++;
 	}
 	j = 0;
-	while (map->map[map->height + 5][j] != '\0')
+	while (map->matrix[map->height - 1][j])
 	{
-		if (map->map[map->height + 5][j] == '0')
+		if (map->matrix[map->height - 1][j] == '0')
 			error("Error: wall invalid13\n");
 		j++;
 	}
@@ -37,14 +37,14 @@ void	check_borders(t_map *map)
 	int	i;
 	int	j;
 
-	i = 6;
-	while (map->map[i])
+	i = map->position_wall;
+	while (map->matrix[i])
 	{
 		j = 0;
-		while (ft_strncmp(&map->map[i][j], " ", 1) == 0)
+		while (ft_strncmp(&map->matrix[i][j], " ", 1) == 0)
 			j++;
-		if (map->map[i][j] != '1'
-			|| map->map[i][ft_strlen(map->map[i]) - 1] != '1')
+		if (map->matrix[i][j] != '1'
+			|| map->matrix[i][ft_strlen(map->matrix[i]) - 1] != '1')
 			error("Error: map invalid12\n");
 		i++;
 	}
