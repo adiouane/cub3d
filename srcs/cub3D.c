@@ -6,19 +6,39 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 19:11:31 by omanar            #+#    #+#             */
-/*   Updated: 2022/10/09 02:06:27 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:51:35 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
 
+void	init_window(t_cub *cub)
+{
+	cub->data->window_width = cub->data->width * TILE_SIZE;
+	cub->data->window_height = cub->data->height * TILE_SIZE;
+	cub->mlxdata->mlx = mlx_init();
+	if (!cub->mlxdata->mlx)
+		exit_error("mlx_init", "Error initializing MLX");
+	cub->mlxdata->win = mlx_new_window(cub->mlxdata->mlx,
+			cub->data->window_width, cub->data->window_height, "cub3D");
+	if (!cub->mlxdata->win)
+		exit_error("mlx_new_window", "Error creating MLX window");
+	cub->rays = malloc(sizeof(t_ray) * cub->data->window_width + 1);
+	if (!cub->rays)
+		exit_strerr("malloc", errno);
+}
+
 int	main(int ac, char **av)
 {
+	t_cub	*cub;
+
 	if (ac != 2)
-	{
-		error("Usage: ./cub3D <filename.cub>\n");
-		return (0);
-	}
-	parsing(av[1]);
+		exit_success("Usage: ./cub3D <map.cub>");
+	cub = (t_cub *)malloc(sizeof(t_cub));
+	parsing(cub, av[1]);
+	system("leaks cub3D");
+	init_window(cub);
+	setup(cub);
+	mlx_loop(cub->mlxdata->mlx);
 	return (0);
 }

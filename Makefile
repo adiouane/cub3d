@@ -12,20 +12,23 @@
 
 NAME	=	cub3D
 RM		=	rm -f
-CC		=	gcc -Wall -Wextra -Werror -Iincludes -I libs/libft/includes -g -fsanitize=address
-MLXFLG	=	-lmlx -Imlx -framework OpenGL -framework AppKit
+CC		=	gcc -Wall -Wextra -Werror -Iincludes -I libs/libft/includes
+DEBUG	=	-g -fsanitize=address
+MLXFLG	=	-lmlx -framework OpenGL -framework AppKit
 LIBFT	=	libs/libft/libft.a
-SRCS	=	srcs/cub3D.c srcs/func/error.c  \
-			srcs/parsing/init_cub.c srcs/parsing/init_map.c \
-			srcs/parsing/parce_cub.c srcs/parsing/check_map.c srcs/raycasting/raycasting.c \
-			srcs/parsing/utls1.c srcs/parsing/utls2.c  srcs/parsing/utls3.c srcs/parsing/utls4.c	$(LIBFT)
+SRCS	=	srcs/cub3D.c srcs/utils/error_handler.c $(LIBFT) \
+			srcs/parsing/parsing.c srcs/parsing/parsing_utils.c \
+			srcs/parsing/line_parsing.c srcs/parsing/line_parsing_utls.c  srcs/parsing/map_parsing.c \
+			srcs/get_next_line/get_next_line.c srcs/get_next_line/get_next_line_utils.c \
+			srcs/initializing.c srcs/rendering.c srcs/rendering2.c \
+			srcs/hooks.c srcs/utils.c srcs/setup.c 
 
 define HEADER_M
-   ____      _    _____ ____  
-  / ___|   _| |__|___ /|  _ \\ 
- | |  | | | | '_ \\ |_ \\| | | |
- | |__| |_| | |_) |__) | |_| |
-  \\____\\__,_|_.__/____/|____/ 
+   ______      __   _____ ____ 
+  / ____/_  __/ /_ |__  // __ \\
+ / /   / / / / __ \\ /_ </ / / /
+/ /___/ /_/ / /_/ /__/ / /_/ / 
+\\____/\\__,_/_.___/____/_____/  
 endef
 export HEADER_M
 
@@ -40,8 +43,16 @@ $(LIBFT):
 
 $(NAME): $(SRCS) $(LIBFT)
 	@echo "\033[0;36m</ Compiling Cub3D >\033[0m"
-	@$(CC) -g $(MLXFLG) $(SRCS) -o $(NAME)
+	@$(CC) $(MLXFLG) $(SRCS) -o $(NAME)
 	@echo "\033[1;32mCub3D has been compiled!\033[0m\n"
+
+run: all
+	@echo "\033[1;32m</ Running... >\033[0m\n"
+	@./$(NAME) maps/simple.cub
+
+debug: all
+	@$(CC) $(MLXFLG) $(DEBUG) $(SRCS) -o $(NAME)
+	@echo "\033[1;31m</ YOU ARE IN DEBUG MODE! >\033[0m\n"
 
 clean:
 	@make clean -C libs/libft

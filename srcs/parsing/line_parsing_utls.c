@@ -1,67 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utls3.c                                            :+:      :+:    :+:   */
+/*   line_parsing_utls.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 01:54:31 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/08 21:17:43 by adiouane         ###   ########.fr       */
+/*   Created: 2022/10/17 19:01:58 by adiouane          #+#    #+#             */
+/*   Updated: 2022/10/17 19:03:57 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
 
-void	check_f_color(t_map *map)
+void	check_f_color(char *line)
 {
 	int		i;
 	char	**f;
 
 	i = 0;
-	f = ft_split(map->floor_color, ',');
+	f = ft_split(line, ',');
 	if (!f)
-		error("Error\n");
+		exit_str("Error\n");
 	while (f[i])
 		i++;
 	if (i != 3)
-		error("Invalid color\n");
-	i = 0;
-	while (i < 3)
-	{
-		if (ft_atoi(f[i]) > 255 || ft_atoi(f[i]) < 0)
-			error("Invalid color\n");
-		i++;
-	}
-	free(f);
+		exit_str("Invalid color\n");
+	free_loop(f);
 }
 
-void	check_c_color(t_map *map)
+void	check_c_color(char *line)
 {
 	int		i;
 	char	**c;
-	int		j;
 
 	i = 0;
-	j = 1;
-	c = ft_split(map->ceiling_color, ',');
+	c = ft_split(line, ',');
 	if (!c)
-		error("Error\n");
+		exit_str("Error\n");
 	while (c[i])
 		i++;
 	if (i != 3)
-		error("Invalid color\n");
-	i = 0;
-	while (i < 3)
-	{
-		if (ft_atoi(c[i]) > 255 || ft_atoi(c[i]) < 0)
-			error("Invalid color\n");
-		i++;
-	}
-	free(c);
+		exit_str("Invalid color\n");
+	free_loop(c);
 }
 
-void	check_colors(t_map *map)
+void	check_lenght(char *line)
 {
-	check_f_color(map);
-	check_c_color(map);
+	check_f_color(line);
+	check_c_color(line);
 }
