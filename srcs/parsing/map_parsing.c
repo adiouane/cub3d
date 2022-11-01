@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 16:37:07 by omanar            #+#    #+#             */
-/*   Updated: 2022/10/14 19:26:48 by adiouane         ###   ########.fr       */
+/*   Created: 2022/10/25 17:09:39 by adiouane          #+#    #+#             */
+/*   Updated: 2022/11/01 16:32:00 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	check_borders(char **map)
 	}
 }
 
+
 void	checker(t_cub *cub, char **map)
 {
 	size_t		i;
@@ -68,7 +69,7 @@ void	checker(t_cub *cub, char **map)
 		j = -1;
 		while (map[i][++j])
 		{
-			if (map[i][j] == '0')
+			if (map[i][j] == '0' || is_player(map[i][j]))
 			{
 				if (map[i][j - 1] == ' '
 				|| map[i][j - 1] == '\0' || map[i][j + 1] == ' '
@@ -103,5 +104,5 @@ void	map_parsing(t_cub *cub, char *line, int fd)
 		free(tmp);
 		line = get_next_line(fd);
 	}
-	free(line);
+	free(line); // we freed the line in the last iteration
 }

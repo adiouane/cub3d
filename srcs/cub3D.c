@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 19:11:31 by omanar            #+#    #+#             */
-/*   Updated: 2022/10/17 17:51:35 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/31 18:45:28 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ int	main(int ac, char **av)
 		exit_success("Usage: ./cub3D <map.cub>");
 	cub = (t_cub *)malloc(sizeof(t_cub));
 	parsing(cub, av[1]);
-	system("leaks cub3D");
-	init_window(cub);
-	setup(cub);
-	mlx_loop(cub->mlxdata->mlx);
+	// init_window(cub);
+	// setup(cub);
+	// mlx_loop(cub->mlxdata->mlx);
 	return (0);
 }

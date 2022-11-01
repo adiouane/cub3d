@@ -6,11 +6,18 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 19:01:58 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/17 19:03:57 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/01 16:32:08 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
+
+int	is_player(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
+		return (1);
+	return (0);
+}
 
 void	check_f_color(char *line)
 {

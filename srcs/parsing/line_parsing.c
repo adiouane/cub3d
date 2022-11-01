@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 16:35:01 by omanar            #+#    #+#             */
-/*   Updated: 2022/10/17 19:01:00 by adiouane         ###   ########.fr       */
+/*   Created: 2022/10/25 17:09:35 by adiouane          #+#    #+#             */
+/*   Updated: 2022/11/01 17:03:49 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ int	get_color(char *line, int *i)
 	if (line[*i] && !ft_isdigit(line[*i + 1]))
 		exit_error("Invalid color", line);
 	rgb = ft_substr(line, j, *i - j);
+	int k = -1;
+	while (rgb[++k])
+	{
+		if (!ft_isdigit(rgb[k]))
+			exit_error("Invalid color", line);
+	}
 	if (!rgb[0])
 		(free(rgb), exit_error("Missing element of RGB values", line));
 	color = ft_atoi(rgb);
@@ -59,6 +65,7 @@ void	color_parsing(t_cub *cub, char *line, int token, int i)
 
 	check_lenght(line);
 	skipe_spaces(line, &i);
+	// printf("i after space = %d\n", i);
 	n = -1;
 	while (++n < 3)
 		color[n] = get_color(line, &i);
@@ -78,9 +85,9 @@ void	texture_parsing(t_cub *cub, char *line, int token, int i)
 
 	skipe_spaces(line, &i);
 	tmp = ft_strdup(&line[i]);
-	path = ft_strtrim(tmp, "\n");
+	// printf("tmp = %s\n", tmp);
+	path = ft_strtrim(tmp, "\n"); // here double strim
 	free(tmp);
-	// printf("no =%s\n", cub->data->no);
 	if (token == TOKEN_NO && !cub->data->no)
 		cub->data->no = path;
 	else if (token == TOKEN_SO && !cub->data->so)
@@ -90,10 +97,7 @@ void	texture_parsing(t_cub *cub, char *line, int token, int i)
 	else if (token == TOKEN_EA && !cub->data->ea)
 		cub->data->ea = path;
 	else
-	{
-		// printf("no =%s\n", cub->data->no);
 		exit_error("Duplicate texture", line);
-	}
 	free(line);
 }
 
@@ -106,15 +110,13 @@ int	line_parsing(t_cub *cub, char *line)
 
 	i = 0;
 	if (is_map(line))
-		return (1);
+		return (1); // exite error
 	skipe_spaces(line, &i);
 	j = i;
 	while (line[i] && line[i] != ' ' && line[i] != '\t')
 		i++;
 	name = ft_substr(line, j, i - j);
-	// printf("name = %s\n", name);
 	token = check_name(name);
-	// printf("token = %d\n", token);
 	if (token == TOKEN_ERROR)
 		exit_error("Invalid Name", name);
 	else if (token == TOKEN_F || token == TOKEN_C)

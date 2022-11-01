@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 19:11:08 by omanar            #+#    #+#             */
-/*   Updated: 2022/10/17 19:04:10 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/01 16:32:24 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 	Then we use curly braces to define the constants.
 */
 
-enum {
+enum e_tokens{
 	TOKEN_NO,
 	TOKEN_SO,
 	TOKEN_WE,
@@ -57,7 +57,7 @@ enum {
 	TOKEN_C,
 	TOKEN_MAP,
 	TOKEN_ERROR,
-}	e_type;
+};
 
 typedef struct s_img {
 	void	*img;
@@ -146,6 +146,7 @@ void	add_player(t_cub *cub, char **map, int y, int x);
 void	checker(t_cub *cub, char **map);
 void	check_borders(char **map);
 void	check_lenght(char *line);
+int		is_player(char c);
 // --------------------------  INITIALIZING  ------------------------- //
 void	init_data(t_cub *cub);
 void	initialize(t_cub *cub);

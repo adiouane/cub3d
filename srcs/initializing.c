@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 20:23:10 by omanar            #+#    #+#             */
-/*   Updated: 2022/10/17 14:45:31 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/10/31 19:35:33 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	init_data(t_cub *cub)
 	cub->data->ceiling = -1;
 	cub->data->width = 0;
 	cub->data->height = 0;
-	cub->data->map[0] = NULL; // we put NULL to the first element of the map array to avoid segfaults in the map_parsing function when 
+	cub->data->map[0] = NULL; // we put NULL to the first element of the map array to avoid segfaults in the map_parsing function when
 }
 
 void	player_config(t_cub *cub)

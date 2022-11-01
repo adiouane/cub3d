@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 18:33:21 by omanar            #+#    #+#             */
-/*   Updated: 2022/10/17 17:34:40 by adiouane         ###   ########.fr       */
+/*   Created: 2022/10/25 17:09:56 by adiouane          #+#    #+#             */
+/*   Updated: 2022/10/31 00:35:28 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ void	file_checker(char *str)
 
 void	file_parsing(t_cub *cub, int fd)
 {
-	int		i;
 	char	*line;
 
-	i = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -42,7 +40,6 @@ void	file_parsing(t_cub *cub, int fd)
 		}
 		free(line);
 		line = get_next_line(fd);
-		i++;
 	}
 }
 
