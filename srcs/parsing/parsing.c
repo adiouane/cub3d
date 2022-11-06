@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:09:56 by adiouane          #+#    #+#             */
-/*   Updated: 2022/10/31 00:35:28 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/06 15:44:04 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	parsing(t_cub *cub, char *str)
 	initialize(cub);
 	file_parsing(cub, fd);
 	close(fd);
-	if_something_missing(cub);
 	checker(cub, cub->data->map);
 	check_borders(cub->data->map);
+	if_something_missing(cub);
 }

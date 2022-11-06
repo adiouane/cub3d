@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:09:39 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/01 16:32:00 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/06 15:45:48 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	if_something_missing(t_cub *cub)
 {
 	if (!cub->data->no || !cub->data->so || !cub->data->we || !cub->data->ea)
 		exit_str("Missing texture");
+	if (cub->player->x == -1 || cub->player->x == -1)
+		exit_str("Missing player");
 	else if (cub->data->floor == -1 || cub->data->ceiling == -1)
 		exit_str("Missing color");
 	else if (!cub->data->map[0])
@@ -26,6 +28,8 @@ void	add_player(t_cub *cub, char **map, int y, int x)
 {
 	if (cub->player->x != -1 || cub->player->y != -1)
 		exit_str("Duplicate player");
+	// if (cub->player->x == -1 || cub->player->y == -1)
+	// 	exit_str("Duplicate player");
 	cub->player->x = (x * TILE_SIZE) + 0.5;
 	cub->player->y = (y * TILE_SIZE) + 0.5;
 	if (map[y][x] == 'N')
