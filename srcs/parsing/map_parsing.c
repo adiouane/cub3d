@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:09:39 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/06 15:45:48 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:26:11 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,18 @@ void	if_something_missing(t_cub *cub)
 {
 	if (!cub->data->no || !cub->data->so || !cub->data->we || !cub->data->ea)
 		exit_str("Missing texture");
-	if (cub->player->x == -1 || cub->player->x == -1)
-		exit_str("Missing player");
 	else if (cub->data->floor == -1 || cub->data->ceiling == -1)
 		exit_str("Missing color");
 	else if (!cub->data->map[0])
 		exit_str("Missing map");
+	else if (cub->player->x == -1 || cub->player->x == -1)
+		exit_str("Missing player");
 }
 
 void	add_player(t_cub *cub, char **map, int y, int x)
 {
 	if (cub->player->x != -1 || cub->player->y != -1)
 		exit_str("Duplicate player");
-	// if (cub->player->x == -1 || cub->player->y == -1)
-	// 	exit_str("Duplicate player");
 	cub->player->x = (x * TILE_SIZE) + 0.5;
 	cub->player->y = (y * TILE_SIZE) + 0.5;
 	if (map[y][x] == 'N')
@@ -64,8 +62,8 @@ void	check_borders(char **map)
 
 void	checker(t_cub *cub, char **map)
 {
-	size_t		i;
-	size_t		j;
+	int		i;
+	int		j;
 
 	i = -1;
 	while (map[++i])
@@ -75,13 +73,14 @@ void	checker(t_cub *cub, char **map)
 		{
 			if (map[i][j] == '0' || is_player(map[i][j]))
 			{
+				if ( j > (int)ft_strlen(map[i + 1])
+					|| j > (int)ft_strlen(map[i - 1]))
+					exit_str("Error: map invalid");
 				if (map[i][j - 1] == ' '
 				|| map[i][j - 1] == '\0' || map[i][j + 1] == ' '
 				|| map[i][j + 1] == '\0' || map[i - 1][j] == ' '
 				|| map[i - 1][j] == '\0' || map[i + 1][j] == ' '
-				|| map[i + 1][j] == '\0'
-				|| j > ft_strlen(map[i + 1])
-				|| j > ft_strlen(map[i - 1]))
+				|| map[i + 1][j] == '\0')
 					exit_str("Error: map invalid");
 			}
 			if (map[i][j] == 'N' || map[i][j] == 'S'
