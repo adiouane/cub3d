@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:09:39 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/08 01:27:13 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/08 16:48:37 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,23 @@ void	add_player(t_cub *cub, char **map, int y, int x)
 void	check_borders(char **map)
 {
 	int	j;
+	int i;
 
 	j = 0;
+	i = 0;
 	while (map[0][j] == ' ') 
 		j++;
 	while(map[0][j] == '1')
 		j++;
-	if (map[0][j] != '1' && map[0][j] != '\0')
+	if (map[0][j] != '1' && map[0][j] != '\0' && map[0][j] != ' ')
 		exit_str("Error: map invalid\n");
+	while(map[i])
+	{
+		if (map[i][0] == '\0' || map[i][0] == '\t'
+			|| map[i][0] == '\n')
+			exit_str("Error: map invalid30\n");
+		i++;
+	}
 }
 
 void	checker(t_cub *cub, char **map)
