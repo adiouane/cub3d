@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:09:39 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/07 19:26:11 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/08 01:27:13 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,29 +43,23 @@ void	add_player(t_cub *cub, char **map, int y, int x)
 
 void	check_borders(char **map)
 {
-	int	i;
 	int	j;
 
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (ft_strncmp(&map[i][j], " ", 1) == 0)
-			j++;
-		if (map[i][j] != '1'
-			|| map[i][ft_strlen(map[i]) - 1] != '1')
-			exit_str("Error: map invalid12\n");
-		i++;
-	}
+	j = 0;
+	while (map[0][j] == ' ') 
+		j++;
+	while(map[0][j] == '1')
+		j++;
+	if (map[0][j] != '1' && map[0][j] != '\0')
+		exit_str("Error: map invalid\n");
 }
-
 
 void	checker(t_cub *cub, char **map)
 {
 	int		i;
 	int		j;
 
-	i = -1;
+	i = 0;
 	while (map[++i])
 	{
 		j = -1;
@@ -73,14 +67,13 @@ void	checker(t_cub *cub, char **map)
 		{
 			if (map[i][j] == '0' || is_player(map[i][j]))
 			{
-				if ( j > (int)ft_strlen(map[i + 1])
+				if (j > (int)ft_strlen(map[i + 1])
 					|| j > (int)ft_strlen(map[i - 1]))
 					exit_str("Error: map invalid");
-				if (map[i][j - 1] == ' '
-				|| map[i][j - 1] == '\0' || map[i][j + 1] == ' '
-				|| map[i][j + 1] == '\0' || map[i - 1][j] == ' '
-				|| map[i - 1][j] == '\0' || map[i + 1][j] == ' '
-				|| map[i + 1][j] == '\0')
+				if (map[i][j - 1] == ' ' || map[i][j - 1] == '\0'
+					|| map[i][j + 1] == ' ' || map[i][j + 1] == '\0'
+					|| map[i - 1][j] == ' ' || map[i - 1][j] == '\0'
+					|| map[i + 1][j] == ' ' || map[i + 1][j] == '\0')
 					exit_str("Error: map invalid");
 			}
 			if (map[i][j] == 'N' || map[i][j] == 'S'
@@ -96,8 +89,8 @@ void	map_parsing(t_cub *cub, char *line, int fd)
 
 	while (line)
 	{
-		if (!is_map(line))
-			exit_error("Invalid map", line);
+		// if (!is_map(line)) // return 1 if line is a map 0 if not
+		// 	exit_error("Invalid map", line);
 		cub->data->height++;
 		tmp = ft_strtrim(line, "\n");
 		if (cub->data->width < (int)ft_strlen(tmp))
@@ -107,5 +100,5 @@ void	map_parsing(t_cub *cub, char *line, int fd)
 		free(tmp);
 		line = get_next_line(fd);
 	}
-	free(line); // we freed the line in the last iteration
+	free(line);
 }

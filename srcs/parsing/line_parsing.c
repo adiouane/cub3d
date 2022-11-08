@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_parsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:09:35 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/01 17:03:49 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/07 22:12:15 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	get_color(char *line, int *i)
 	int		j;
 	char	*rgb;
 	int		color;
+	int		k;
 
 	j = *i;
 	while (line[*i] && line[*i] != ',')
@@ -42,7 +43,7 @@ int	get_color(char *line, int *i)
 	if (line[*i] && !ft_isdigit(line[*i + 1]))
 		exit_error("Invalid color", line);
 	rgb = ft_substr(line, j, *i - j);
-	int k = -1;
+	k = -1;
 	while (rgb[++k])
 	{
 		if (!ft_isdigit(rgb[k]))
@@ -65,7 +66,6 @@ void	color_parsing(t_cub *cub, char *line, int token, int i)
 
 	check_lenght(line);
 	skipe_spaces(line, &i);
-	// printf("i after space = %d\n", i);
 	n = -1;
 	while (++n < 3)
 		color[n] = get_color(line, &i);
@@ -85,7 +85,6 @@ void	texture_parsing(t_cub *cub, char *line, int token, int i)
 
 	skipe_spaces(line, &i);
 	tmp = ft_strdup(&line[i]);
-	// printf("tmp = %s\n", tmp);
 	path = ft_strtrim(tmp, "\n"); // here double strim
 	free(tmp);
 	if (token == TOKEN_NO && !cub->data->no)
@@ -110,7 +109,7 @@ int	line_parsing(t_cub *cub, char *line)
 
 	i = 0;
 	if (is_map(line))
-		return (1); // exite error
+		return (1); // return 1 if map
 	skipe_spaces(line, &i);
 	j = i;
 	while (line[i] && line[i] != ' ' && line[i] != '\t')

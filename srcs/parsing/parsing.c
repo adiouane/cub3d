@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:09:56 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/06 15:44:04 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/08 01:03:13 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ void	parsing(t_cub *cub, char *str)
 	file_parsing(cub, fd);
 	close(fd);
 	checker(cub, cub->data->map);
-	check_borders(cub->data->map);
 	if_something_missing(cub);
+	check_borders(cub->data->map);
 }
