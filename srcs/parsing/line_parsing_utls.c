@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 19:01:58 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/09 21:22:15 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:28:32 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ int	set_lines(t_cub *cub)
 {
 	if (cub->data->no == NULL || cub->data->so == NULL
 		|| cub->data->we == NULL || cub->data->ea == NULL
-		|| cub->data->floor == -1 || cub->data->ceiling == -1)
-		exit_str("Error: map invalid20\n");
+		|| cub->data->floor == -1 || cub->data->ceiling == -1
+		|| cub->data->map[cub->data->height] == NULL)
+		exit_str("Error: map invalid");
 	return (0);
 }
 
