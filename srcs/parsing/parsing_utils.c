@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:09:49 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/07 22:11:37 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:08:05 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	is_map(char *line)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] != '1' && line[i] != '0' && line[i] != '2'
-			&& line[i] != 'N' && line[i] != 'S' && line[i] != 'E'
-			&& line[i] != 'W' && line[i] != ' ' && line[i] != '\n')
+		if (line[i] != '1' && line[i] != '0' && line[i] != 'N' 
+			&& line[i] != 'S' && line[i] != 'E' && line[i] != 'W'
+			&& line[i] != ' ' && line[i] != '\n')
 			return (0);
 		i++;
 	}
