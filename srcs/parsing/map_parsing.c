@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:09:39 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/09 21:10:52 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:21:15 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,32 +44,23 @@ void	add_player(t_cub *cub, char **map, int y, int x)
 void	check_borders(char **map)
 {
 	int	j;
-	int i;
+	int	i;
 
 	j = 0;
 	i = 0;
-	while (map[0][j] == ' ') 
+	while (map[0][j] == ' ')
 		j++;
-	while(map[0][j] == '1')
+	while (map[0][j] == '1')
 		j++;
 	if (map[0][j] != '1' && map[0][j] != '\0' && map[0][j] != ' ')
-		exit_str("Error: map invalid1\n");
-	while(map[i])
+		exit_str("Error: map invalid\n");
+	while (map[i])
 	{
 		if (map[i][0] == '\0' || map[i][0] == '\t'
 			|| map[i][0] == '\n')
-			exit_str("Error: map invalid30\n");
+			exit_str("Error: map invalid\n");
 		i++;
 	}
-}
-
-int set_lines(t_cub *cub)
-{
-	if (cub->data->no == NULL || cub->data->so == NULL
-		|| cub->data->we == NULL || cub->data->ea == NULL
-		|| cub->data->floor == -1 || cub->data->ceiling == -1)
-		exit_str("Error: map invalid20\n");
-	return (0);
 }
 
 void	checker(t_cub *cub, char **map)
@@ -87,14 +78,12 @@ void	checker(t_cub *cub, char **map)
 			{
 				if (j > (int)ft_strlen(map[i + 1])
 					|| j > (int)ft_strlen(map[i - 1]))
-						exit_str("Error: map invalid2");
+					exit_str("Error: map invalid");
 				if (map[i][j - 1] == ' ' || map[i][j - 1] == '\0'
 					|| map[i][j + 1] == ' ' || map[i][j + 1] == '\0'
 					|| map[i - 1][j] == ' ' || map[i - 1][j] == '\0'
-					|| map[i + 1][j] == ' ' || map[i + 1][j] == '\0') {
-					// printf("1 '%s' \n2 '%s' \n3 '%s' \n4 '%s'\n", map[i], map[i], map[i - 1], map[i + 1]);
-					exit_str("Error: map invalid3000");
-					}
+					|| map[i + 1][j] == ' ' || map[i + 1][j] == '\0')
+					exit_str("Error: map invalid");
 			}
 			if (map[i][j] == 'N' || map[i][j] == 'S'
 				|| map[i][j] == 'W' || map[i][j] == 'E')

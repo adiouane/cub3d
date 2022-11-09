@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:09:35 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/09 19:48:50 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:21:35 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int	get_color(char *line, int *i)
 	j = *i;
 	while (line[*i] && line[*i] != ',')
 		(*i)++;
-	// printf("line[i] = %c\n", line[*i+1]);
-	// exit(0);
 	if (line[*i] && !ft_isdigit(line[*i + 1]))
 		exit_error("Invalid color", line);
 	rgb = ft_substr(line, j, *i - j);

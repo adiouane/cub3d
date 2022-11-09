@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 19:11:08 by omanar            #+#    #+#             */
-/*   Updated: 2022/11/08 17:26:00 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:16:21 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ void	checker(t_cub *cub, char **map);
 void	check_borders(char **map);
 void	check_lenght(char *line);
 int		is_player(char c);
+int 	set_lines(t_cub *cub);
 // --------------------------  INITIALIZING  ------------------------- //
 void	init_data(t_cub *cub);
 void	initialize(t_cub *cub);

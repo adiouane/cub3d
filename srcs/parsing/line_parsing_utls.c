@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_parsing_utls.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adiouane <adiouane@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 19:01:58 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/01 16:32:08 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:22:15 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@ int	is_player(char c)
 {
 	if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
 		return (1);
+	return (0);
+}
+
+int	set_lines(t_cub *cub)
+{
+	if (cub->data->no == NULL || cub->data->so == NULL
+		|| cub->data->we == NULL || cub->data->ea == NULL
+		|| cub->data->floor == -1 || cub->data->ceiling == -1)
+		exit_str("Error: map invalid20\n");
 	return (0);
 }
 
