@@ -5,21 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 17:09:56 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/08 17:20:13 by adiouane         ###   ########.fr       */
+/*   Created: 2022/11/10 22:20:16 by adiouane          #+#    #+#             */
+/*   Updated: 2022/11/10 22:31:32 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
 
-void	file_checker(char *str)
+void	file_checker(char *str, char *extension)
 {
 	char	*ext;
 
 	ext = ft_strrchr(str, '.');
 	if (!ext)
-		exit_str("No extension found");
-	else if (ft_strncmp(ext, ".cub\0", 5))
+		exit_error("No extension found", str);
+	else if (ft_strncmp(ext, extension, 5))
 		exit_error("invalid file extension", ext);
 }
 
@@ -47,7 +47,7 @@ void	parsing(t_cub *cub, char *str)
 {
 	int		fd;
 
-	file_checker(str);
+	file_checker(str, ".cub\0");
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 		exit_strerr(str, errno);

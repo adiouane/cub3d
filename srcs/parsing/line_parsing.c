@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 17:09:35 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/09 21:21:35 by adiouane         ###   ########.fr       */
+/*   Created: 2022/11/10 22:23:39 by adiouane          #+#    #+#             */
+/*   Updated: 2022/11/10 22:24:31 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ void	texture_parsing(t_cub *cub, char *line, int token, int i)
 
 	skipe_spaces(line, &i);
 	tmp = ft_strdup(&line[i]);
-	path = ft_strtrim(tmp, "\n"); // here double strim
+	path = ft_strtrim(tmp, "\n");
+	file_checker(path, ".xpm\0");
 	free(tmp);
 	if (token == TOKEN_NO && !cub->data->no)
 		cub->data->no = path;
@@ -109,7 +110,7 @@ int	line_parsing(t_cub *cub, char *line)
 
 	i = 0;
 	if (is_map(line))
-		return (1); // return 1 if map
+		return (1);
 	skipe_spaces(line, &i);
 	j = i;
 	while (line[i] && line[i] != ' ' && line[i] != '\t')

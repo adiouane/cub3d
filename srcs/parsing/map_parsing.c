@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 17:09:39 by adiouane          #+#    #+#             */
-/*   Updated: 2022/11/09 21:21:15 by adiouane         ###   ########.fr       */
+/*   Created: 2022/11/10 22:22:33 by adiouane          #+#    #+#             */
+/*   Updated: 2022/11/10 22:22:42 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ void	map_parsing(t_cub *cub, char *line, int fd)
 
 	while (line)
 	{
-		// if (!is_map(line)) // return 1 if line is a map 0 if not
-		// 	exit_error("Invalid map", line);
+		if (!is_map(line))
+			exit_error("Invalid map", line);
 		cub->data->height++;
 		tmp = ft_strtrim(line, "\n");
 		if (cub->data->width < (int)ft_strlen(tmp))
@@ -109,5 +109,7 @@ void	map_parsing(t_cub *cub, char *line, int fd)
 		free(tmp);
 		line = get_next_line(fd);
 	}
+	cub->data->window_width = cub->data->width * TILE_SIZE;
+	cub->data->window_height = cub->data->height * TILE_SIZE;
 	free(line);
 }

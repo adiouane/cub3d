@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: omanar <omanar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 21:31:06 by omanar            #+#    #+#             */
-/*   Updated: 2022/11/09 19:04:51 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/03 15:33:00 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	exit_str(char *str)
 {
-	ft_putstr_fd("cub3D : ", 2);
+	ft_putstr_fd("cub3D: ", 2);
 	ft_putendl_fd(str, 2);
 	exit(EXIT_FAILURE);
 }
 
 void	exit_error(char *str, char *err)
 {
-	ft_putstr_fd("cub3D ", 2);
+	ft_putstr_fd("cub3D: ", 2);
 	ft_putstr_fd(err, 2);
 	ft_putstr_fd(": ", 2);
 	ft_putendl_fd(str, 2);
