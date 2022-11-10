@@ -6,7 +6,7 @@
 /*   By: adiouane <adiouane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 19:11:08 by omanar            #+#    #+#             */
-/*   Updated: 2022/11/10 23:32:28 by adiouane         ###   ########.fr       */
+/*   Updated: 2022/11/10 23:34:45 by adiouane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define TILE_SIZE 32
 # define MINIFICATION 0.3
 
-enum TOKENS{
+enum e_TOKENS{
 	TOKEN_NO,
 	TOKEN_SO,
 	TOKEN_WE,
